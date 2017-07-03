@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = (
     'project',
+    'coming_soon',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -108,5 +109,5 @@ MEDIA_ROOT = 'media_root/'
 MEDIA_URL = 'media/'
 
 # Django admin page headers.
-admin.site.site_header = 'django-seed'
-admin.site.site_title = 'django-seed'
+admin.site.site_header = 'coming-soon'
+admin.site.site_title = 'coming-soon'

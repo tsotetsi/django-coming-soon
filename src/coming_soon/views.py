@@ -1,3 +1,11 @@
-from django.shortcuts import render
+from .forms import ContactUsForm
+from django.views.generic import FormView
 
-# Create your views here.
+
+class ContactUsView(FormView):
+    template_name = 'contact.html'
+    form_class = ContactUsForm
+    success_url = '/success/'
+
+    def form_valid(self, form):
+        return super(ContactUsView, self).form_valid(form)

@@ -13,13 +13,11 @@ class ContactUsView(FormView):
         return super(ContactUsView, self).form_valid(form)
 
     @staticmethod
-    def create_user_details(name, email):
-        PrelaunchSignUp.objects.create(name=name, email=email)
+    def create_user(user_data):
+        PrelaunchSignUp.objects.create(name=user_data['name'], email=user_data['email'])
 
     def post(self, request, *args, **kwargs):
-        data = request.POST
-        name = data['name']
-        email = data['email']
+        user_data = request.POST
 
-        self.create_user_details(name, email)
+        self.create_user(user_data)
         return super(ContactUsView, self).post(request)

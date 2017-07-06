@@ -5,7 +5,7 @@ from .models import PrelaunchSignUp
 
 class ContactUsForm(ModelForm):
     """
-    Contact Us Form.
+    PreLaunch Contact Us Form.
     """
     class Meta:
         model = PrelaunchSignUp

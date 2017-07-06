@@ -86,6 +86,7 @@ DATABASES = {
 }
 
 # Email configurations.
+
 PRELAUNCH_EMAIL = 'prelaunch@example.com'
 EMAIL_HOST = ''
 EMAIL_HOST_PASSWORD = ''
@@ -93,6 +94,10 @@ EMAIL_HOST_USER = ''
 EMAIL_PORT = ''
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+# Use console during development.
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/

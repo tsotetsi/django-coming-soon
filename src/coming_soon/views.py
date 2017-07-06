@@ -18,8 +18,7 @@ class ContactUsView(FormView):
             subject='Thanks for contacting us!',
             message='Thanks you for contacting us',
             from_email=from_email,
-            recipient_list=[getattr(settings, 'PRELAUNCH_EMAIL', 'None')],
-            fail_silently=True
+            recipient_list=[getattr(settings, 'PRELAUNCH_EMAIL', 'None')]
         )
 
     @staticmethod

@@ -1,15 +1,15 @@
 # django-coming-soon
 Django Coming Soon.
 
-##Setup development environment.
+## Setup development environment.
 
 
-##Init project.
+## Init project.
     The following command will install all project dependencies.
 
     `pip install -e .`
 
 
-##Running tests.
+## Running tests.
 
     `pytest` or `pytest --ds=project.settings_test tests/`

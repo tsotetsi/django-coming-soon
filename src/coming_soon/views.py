@@ -15,8 +15,8 @@ class ContactUsView(FormView):
     @staticmethod
     def send_email(to_email):
         send_mail(
-            subject='Thanks for contacting us!',
-            message='Thanks you for contacting us',
+            subject='Thank you for contacting us!',
+            message='Thank you for contacting us. You will be notified once the product goes live.',
             from_email=getattr(settings, 'PRELAUNCH_EMAIL', 'None'),
             recipient_list=[to_email]
         )

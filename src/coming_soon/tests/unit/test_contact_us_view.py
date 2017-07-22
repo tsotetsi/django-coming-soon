@@ -5,6 +5,7 @@ from unittest import TestCase
 from django.test import Client
 from django.urls import reverse
 from django.core import mail
+from django.conf import settings
 
 from coming_soon.forms import ContactUsForm
 
@@ -35,6 +36,13 @@ class ContactUsViewTest(TestCase):
 
         # Check that an email was sent to the user.
         self.assertEqual(len(mail.outbox), 1)
+
+        # Check that an email was sent from the correct email account.
+        self.assertEqual(mail.outbox[0].from_email, getattr(settings, 'PRELAUNCH_EMAIL', 'None'))
+
+        # Check that an email was sent to the correct user.
+        #import pdb;pdb.set_trace()
+        self.assertEqual(mail.outbox[0].to[0], self.user_data['email'])
 
         # Check that post redirects to same url.
         self.assertEqual(response.url, reverse('coming-soon'))

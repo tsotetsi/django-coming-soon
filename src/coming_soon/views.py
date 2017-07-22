@@ -13,12 +13,12 @@ class ContactUsView(FormView):
     success_url = '/coming-soon/'  # TODO: use reverse('coming-soon')
 
     @staticmethod
-    def send_email(from_email):
+    def send_email(to_email):
         send_mail(
             subject='Thanks for contacting us!',
             message='Thanks you for contacting us',
-            from_email=from_email,
-            recipient_list=[getattr(settings, 'PRELAUNCH_EMAIL', 'None')]
+            from_email=getattr(settings, 'PRELAUNCH_EMAIL', 'None'),
+            recipient_list=[to_email]
         )
 
     @staticmethod
@@ -30,6 +30,6 @@ class ContactUsView(FormView):
         if form.is_valid():
             user_data = request.POST
             self.create_user(user_data)
-            self.send_email(from_email=user_data['email'])
+            self.send_email(to_email=user_data['email'])
             messages.success(request, 'Your details were captured successfully.')
         return super(ContactUsView, self).post(request)

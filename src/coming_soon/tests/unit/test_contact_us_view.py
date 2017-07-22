@@ -1,3 +1,5 @@
+import pytest
+
 from unittest import TestCase
 
 from django.test import Client
@@ -11,7 +13,7 @@ class ContactUsViewTest(TestCase):
     def setUp(self):
         self.user_data = {
             'name': 'John Doe',
-            'email': 'fe@example.com'
+            'email': 'jd@example.com'
         }
         self.client = Client()
 
@@ -26,6 +28,7 @@ class ContactUsViewTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.template_name[0], 'contact.html')
 
+    @pytest.mark.django_db(transaction=True)
     def test_coming_soon_post(self):
         response = self.create_view_post_request(data=self.user_data)
         self.assertEqual(response.status_code, 302)

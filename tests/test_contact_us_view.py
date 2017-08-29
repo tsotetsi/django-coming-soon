@@ -1,5 +1,5 @@
 from django.test import Client, TestCase
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.core import mail
 from django.conf import settings
 
@@ -15,7 +15,7 @@ class ContactUsViewTest(TestCase):
         self.client = Client()
 
     def create_view_get_request(self):
-        return self.client.get(reverse('coming-soon'))
+        return self.client.get(reverse_lazy('coming-soon'))
 
     def create_view_post_request(self, data=None):
         return self.client.post(reverse('coming-soon'), data=data)

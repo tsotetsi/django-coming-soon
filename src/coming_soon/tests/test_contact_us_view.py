@@ -1,8 +1,4 @@
-import pytest
-
-from unittest import TestCase
-
-from django.test import Client
+from django.test import Client, TestCase
 from django.urls import reverse
 from django.core import mail
 from django.conf import settings
@@ -29,7 +25,6 @@ class ContactUsViewTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.template_name[0], 'contact.html')
 
-    @pytest.mark.django_db(transaction=True)
     def test_coming_soon_post(self):
         response = self.create_view_post_request(data=self.user_data)
         self.assertEqual(response.status_code, 302)
@@ -41,7 +36,6 @@ class ContactUsViewTest(TestCase):
         self.assertEqual(mail.outbox[0].from_email, getattr(settings, 'PRELAUNCH_EMAIL', 'None'))
 
         # Check that an email was sent to the correct user.
-        #import pdb;pdb.set_trace()
         self.assertEqual(mail.outbox[0].to[0], self.user_data['email'])
 
         # Check that post redirects to same url.

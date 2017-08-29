@@ -1,4 +1,4 @@
-# django-coming-soon
+# django-coming-soon [![Build Status](https://travis-ci.org/tsotetsi/django-coming-soon.svg?branch=develop)](https://travis-ci.org/tsotetsi/django-coming-soon)
 Django Coming Soon.
 
 ## Setup development environment.

@@ -1,7 +1,8 @@
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
-from django.contrib import admin
+from django.contrib.admin import AdminSite
+
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -27,12 +28,11 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 )
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -98,13 +98,13 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.8/howto/static-files/
+# https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_ROOT = 'static_root/'
-STATIC_URL = 'static/'
-MEDIA_ROOT = 'media_root/'
-MEDIA_URL = 'media/'
+STATIC_ROOT = '/static_root/'
+STATIC_URL = '/static/'
+MEDIA_ROOT = '/media_root/'
+MEDIA_URL = '/media/'
 
 # Django admin page headers.
-admin.site.site_header = 'coming-soon'
-admin.site.site_title = 'coming-soon'
+AdminSite.site_header = 'coming-soon'
+AdminSite.site_title = 'coming-soon'

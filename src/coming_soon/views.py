@@ -2,7 +2,7 @@ from django.views.generic import FormView
 from django.contrib import messages
 from django.core.mail import send_mail, EmailMessage
 from django.conf import settings
-from django.core.urlresolvers import reverse_lazy
+from django.urls import reverse_lazy
 
 from .forms import ContactUsForm
 from .models import PrelaunchSignUp

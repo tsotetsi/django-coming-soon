@@ -2,13 +2,37 @@
 <html>
 <head>
     <title>Coming Soon</title>
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/css/uikit.min.css" />
 </head>
 
 <body>
-    <form action="" method="post">{% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Send" />
-    </form>
+<div class="uk-grid-divider uk-child-width-expand@s uk-margin-large-top" uk-grid>
+    <div></div>
+    <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
+        <form class="uk-form-horizontal uk-margin-medium" method="post">{% csrf_token %}
+            <div class="uk-margin">
+                <label class="uk-form-label" for="id_name">Name:</label>
+                <div class="uk-form-controls">
+                    <input class="uk-input uk-form-width-large" id="id_name" name="name" type="text" placeholder="Enter you name." required>
+                </div>
+            </div>
+            <div class="uk-margin">
+                <label class="uk-form-label" for="id_email">Email:</label>
+                <div class="uk-form-controls">
+                    <input class="uk-input uk-form-width-large" id="id_email" name="email" type="email" placeholder="Enter your email." required>
+                </div>
+            </div>
+            <button class="uk-button uk-button-default">Submit</button>
+        </form>
+    </div>
+    <div></div>
+</div>
+    <!-- jQuery is required -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- UIkit JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/js/uikit-icons.min.js"></script>
 </body>
 
 </html>

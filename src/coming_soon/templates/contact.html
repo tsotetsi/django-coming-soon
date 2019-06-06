@@ -7,8 +7,8 @@
 </head>
 
 <body>
-    <div class="uk-grid-divider uk-child-width-expand@s uk-margin-large-top">
-        <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
+    <div style="" class="uk-grid-divider uk-child-width-expand@s uk-margin-large-top">
+        <div style="margin: 0 auto;" class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
             <form class="uk-form-horizontal uk-margin-medium" method="post">{% csrf_token %}
                 <div class="uk-margin">
                     <label class="uk-form-label" for="id_name">Name:</label>
@@ -22,16 +22,16 @@
                         <input class="uk-input uk-form-width-large" id="id_email" name="email" type="email" placeholder="Enter your email." required>
                     </div>
                 </div>
-                <button class="uk-button uk-button-default">Submit</button>
+                <button style="float: right;" class="uk-button uk-button-default">Submit</button>
             </form>
+            {% if messages %}
+            <ul style="padding: 0; margin: 0;" class="messages">
+                {% for message in messages %}
+                <span {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</span>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </div>
-        {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
     </div>
     <!-- jQuery is required -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

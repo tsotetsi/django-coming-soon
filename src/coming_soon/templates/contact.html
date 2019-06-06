@@ -7,27 +7,32 @@
 </head>
 
 <body>
-<div class="uk-grid-divider uk-child-width-expand@s uk-margin-large-top" uk-grid>
-    <div></div>
-    <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
-        <form class="uk-form-horizontal uk-margin-medium" method="post">{% csrf_token %}
-            <div class="uk-margin">
-                <label class="uk-form-label" for="id_name">Name:</label>
-                <div class="uk-form-controls">
-                    <input class="uk-input uk-form-width-large" id="id_name" name="name" type="text" placeholder="Enter you name." required>
+    <div class="uk-grid-divider uk-child-width-expand@s uk-margin-large-top">
+        <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
+            <form class="uk-form-horizontal uk-margin-medium" method="post">{% csrf_token %}
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="id_name">Name:</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input uk-form-width-large" id="id_name" name="name" type="text" placeholder="Enter you name." required>
+                    </div>
                 </div>
-            </div>
-            <div class="uk-margin">
-                <label class="uk-form-label" for="id_email">Email:</label>
-                <div class="uk-form-controls">
-                    <input class="uk-input uk-form-width-large" id="id_email" name="email" type="email" placeholder="Enter your email." required>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="id_email">Email:</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input uk-form-width-large" id="id_email" name="email" type="email" placeholder="Enter your email." required>
+                    </div>
                 </div>
-            </div>
-            <button class="uk-button uk-button-default">Submit</button>
-        </form>
+                <button class="uk-button uk-button-default">Submit</button>
+            </form>
+        </div>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
     </div>
-    <div></div>
-</div>
     <!-- jQuery is required -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- UIkit JS -->

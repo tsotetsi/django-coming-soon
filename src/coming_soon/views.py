@@ -1,6 +1,6 @@
 from django.views.generic import FormView
 from django.contrib import messages
-from django.core.mail import send_mail, EmailMessage
+from django.core.mail import EmailMessage
 from django.conf import settings
 from django.urls import reverse_lazy
 
@@ -9,6 +9,7 @@ from .models import PrelaunchSignUp
 
 
 class ContactUsView(FormView):
+
     template_name = 'contact.html'
     form_class = ContactUsForm
     success_url = reverse_lazy('coming-soon')
@@ -28,6 +29,7 @@ class ContactUsView(FormView):
         PrelaunchSignUp.objects.create(name=user_data['name'], email=user_data['email'])
 
     def post(self, request, *args, **kwargs):
+
         form = self.get_form()
         if form.is_valid():
             user_data = request.POST

@@ -2,6 +2,7 @@ from django.test import Client, TestCase
 from django.urls import reverse, reverse_lazy
 from django.core import mail
 from django.conf import settings
+from django.contrib.messages import get_messages
 
 from coming_soon.forms import ContactUsForm
 
@@ -40,6 +41,11 @@ class ContactUsViewTest(TestCase):
 
         # Check that post redirects to same url.
         self.assertEqual(response.url, reverse('coming-soon'))
+
+        messages = [m.message for m in get_messages(response.wsgi_request)]
+
+        # Check success success message.
+        self.assertIn('Your details were captured successfully.', messages)
 
     def test_coming_soon_post_form(self):
         invalid_form_data = {

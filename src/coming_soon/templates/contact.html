@@ -4,9 +4,10 @@
     <title>Coming Soon</title>
     <!-- UIkit CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/css/uikit.min.css" />
+    {% load staticfiles %}
 </head>
 
-<body>
+<body style="background-image: url({% static "coming_soon/images/forestbridge.jpg" %}); background-repeat: no-repeat;background-size: cover;">
     <div style="" class="uk-grid-divider uk-child-width-expand@s uk-margin-large-top">
         <div style="margin: 0 auto;" class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
             <form class="uk-form-horizontal uk-margin-medium" method="post">{% csrf_token %}
